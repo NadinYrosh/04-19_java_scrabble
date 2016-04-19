@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class ScrabbleTest {
 
   @Test
-  public void calculateScore_returnsScoreForSingleLetter_1() {
+  public void calculateScore_returnsScoreForSingleLetter_1To10() {
     Scrabble testScrabble = new Scrabble();
     Integer expected = 1;
     assertEquals(expected, testScrabble.calculateScore("a"));
@@ -22,5 +22,11 @@ public class ScrabbleTest {
     assertEquals(expected, testScrabble.calculateScore("j"));
     expected = 10;
     assertEquals(expected, testScrabble.calculateScore("q"));
+  }
+  @Test
+  public void calculateScore_returnsScoreForWordCat_5() {
+    Scrabble testScrabble = new Scrabble();
+    Integer expected = 5;
+    assertEquals(expected, testScrabble.calculateScore("cat"));
   }
 }
