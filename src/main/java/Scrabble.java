@@ -43,6 +43,7 @@ public static void main(String[] args){}
     score.put('x', 8);
     score.put('q', 10);
     score.put('z', 10);
+    score.put(' ', 0);
 
     //Splitting word into charArray (word)
     Integer totalScore = 0;

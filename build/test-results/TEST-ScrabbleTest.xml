@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ScrabbleTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2016-04-19T22:00:14" hostname="epicodus-59.local" time="0.003">
+<testsuite name="ScrabbleTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-04-19T22:08:32" hostname="epicodus-59.local" time="0.003">
   <properties/>
   <testcase name="calculateScore_returnsScoreForSingleLetter_1To10" classname="ScrabbleTest" time="0.002"/>
   <testcase name="calculateScore_returnInputtedWordInLowerCase_dog" classname="ScrabbleTest" time="0.0"/>
   <testcase name="calculateScore_returnsScoreForWordCat_5" classname="ScrabbleTest" time="0.0"/>
   <testcase name="calculateScore_returnInputtedWordInMixedCase_dog" classname="ScrabbleTest" time="0.0"/>
+  <testcase name="calculateScore_returnInputedBlank_0" classname="ScrabbleTest" time="0.0"/>
   <system-out><![CDATA[a
 d
 b
@@ -21,6 +22,7 @@ t
 d
 o
 g
+ 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
