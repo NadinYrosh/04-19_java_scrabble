@@ -33,14 +33,14 @@ public class ScrabbleTest {
     assertEquals(expected, testScrabble.calculateScore("cat"));
   }
   @Test
-  public void calculateScore_returnInputtedWordInLowerCase_dog() {
+  public void calculateScore_returnsScoreForUpperCaseWord_dog() {
     Scrabble testScrabble = new Scrabble();
     Integer expected = 5;
     assertEquals(expected, testScrabble.calculateScore("DOG"));
   }
 
   @Test
-  public void calculateScore_returnInputtedWordInMixedCase_dog() {
+  public void calculateScore_returnScoreForeMixedCaseWord_dog() {
     Scrabble testScrabble = new Scrabble();
     Integer expected = 5;
     assertEquals(expected, testScrabble.calculateScore("dOg"));
