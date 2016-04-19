@@ -2,6 +2,8 @@
 import java.util.Map;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.io.*;
+
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
@@ -11,6 +13,9 @@ public static void main(String[] args){}
 
   //Key value pairs for scrabble alphabet and each letter value
   public Integer calculateScore(String word) {
+    word = word.toLowerCase(); //This overwrites original word to lower case
+    // String input = "Dog";
+    // String lower = input.toLowerCase();
     HashMap<Character, Integer> score = new HashMap<Character, Integer>();
     score.put('a', 1);
     score.put('e', 1);
@@ -45,7 +50,7 @@ public static void main(String[] args){}
 
     //Using for loop to cycle through EACH char in charArray (word)
     for (char item : charArray){
-      System.out.println(item);
+      System.out.println(item);//Java version of console logging
       //score.get(item)=value of each char letter run during for loop
       totalScore = totalScore + score.get(item);
     }

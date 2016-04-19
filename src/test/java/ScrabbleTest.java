@@ -2,6 +2,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.io.*;
 
 public class ScrabbleTest {
 
@@ -29,4 +30,18 @@ public class ScrabbleTest {
     Integer expected = 5;
     assertEquals(expected, testScrabble.calculateScore("cat"));
   }
+  @Test
+  public void calculateScore_returnInputtedWordInLowerCase_dog() {
+    Scrabble testScrabble = new Scrabble();
+    Integer expected = 5;
+    assertEquals(expected, testScrabble.calculateScore("DOG"));
+  }
+
+  @Test
+  public void calculateScore_returnInputtedWordInMixedCase_dog() {
+    Scrabble testScrabble = new Scrabble();
+    Integer expected = 5;
+    assertEquals(expected, testScrabble.calculateScore("dOg"));
+  }
+
 }
