@@ -3,19 +3,36 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.io.*;
-
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
 
 public class Scrabble {
-public static void main(String[] args){}
+  public static void main(String[] args){
+    String layout = "templates/layout.vtl";
+
+      get("/", (request, response) -> {
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("template", "templates/index.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
+      get("/results", (request, response) -> {
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("template", "templates/results.vtl");
+
+        String word = request.queryParams("word");
+        Scrabble myScrabble = new Scrabble();
+        Integer totalScore = myScrabble.calculateScore(word);
+
+        model.put("totalScore", totalScore);
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+    }
 
   //Key value pairs for scrabble alphabet and each letter value
   public Integer calculateScore(String word) {
     word = word.toLowerCase(); //This overwrites original word to lower case
-    // String input = "Dog";
-    // String lower = input.toLowerCase();
     HashMap<Character, Integer> score = new HashMap<Character, Integer>();
     score.put('a', 1);
     score.put('e', 1);
@@ -52,8 +69,7 @@ public static void main(String[] args){}
     //Using for loop to cycle through EACH char in charArray (word)
     for (char item : charArray){
       System.out.println(item);//Java version of console logging
-      //score.get(item)=value of each char letter run during for loop
-      totalScore = totalScore + score.get(item);
+      totalScore = totalScore + score.get(item);//score.get(item)=value of each char letter run during for loop
     }
     return totalScore;
   }
